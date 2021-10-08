@@ -1,6 +1,6 @@
 export default {
     get(key) {
-        let item = localStorage.getItem(key)
+        let item = sessionStorage.getItem(key)
         item = JSON.parse(item)
 
         if (item)
@@ -9,11 +9,11 @@ export default {
         return null
     },
 
-    update(key, value) {
+    set(key, value) {
         if (value == null) return
 
         let newValue = JSON.stringify(value)
-        localStorage.setItem(key, newValue)
+        sessionStorage.setItem(key, newValue)
 
     }
 }

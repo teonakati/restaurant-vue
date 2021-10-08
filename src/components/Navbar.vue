@@ -2,21 +2,22 @@
   <div>
     <el-menu
       :default-active="activeIndex"
-      class="navbar"
       mode="horizontal"
       background-color="#545c64"
       text-color="#fff"
       @select="handleSelect"
       active-text-color="#ffd04b"
     >
-      <el-menu-item index="/">Restaurantes</el-menu-item>
-      <el-menu-item index="/pedidos">Pedidos</el-menu-item>
+      <el-menu-item index="/">Home</el-menu-item>
+      <el-menu-item v-if="getAuthenticated" index="/products">Produtos</el-menu-item>
       <el-menu-item index="/login" class="login">Login</el-menu-item>
       <el-menu-item index="/register">Cadastrar</el-menu-item>
     </el-menu>
   </div>
 </template>
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: "Navbar",
   data() {
@@ -28,15 +29,16 @@ export default {
       handleSelect(key) {
           this.$router.push(key)
       }
+  },
+  computed: {
+      ...mapGetters([
+        'getAuthenticated'
+      ])
   }
 };
 </script>
 <style scoped>
-.navbar {
-    display: flex;
-}
-
 .login {
-    margin-left: auto;
+  margin-left: auto;
 }
 </style>

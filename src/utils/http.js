@@ -1,5 +1,5 @@
 import axios from 'axios'
-import LocalStore from './localStorage'
+import SessionStore from './sessionStorage'
 
 const client = axios.create({
     baseURL: process.env.VUE_APP_APIURL,
@@ -7,7 +7,7 @@ const client = axios.create({
 })
 
 client.interceptors.request.use((config) => {
-    let token = LocalStore.get(token)
+    let token = SessionStore.get(token)
     
     if (token)
         config.headers['authorization'] = `Bearer ${token}`
