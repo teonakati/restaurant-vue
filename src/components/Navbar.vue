@@ -9,7 +9,7 @@
       active-text-color="#ffd04b"
     >
       <el-menu-item index="/">Home</el-menu-item>
-      <el-menu-item v-if="getAuthenticated" index="/products">Produtos</el-menu-item>
+      <el-menu-item v-if="getAuthenticated" index="/product">Produtos</el-menu-item>
       <el-menu-item index="/login" class="login">Login</el-menu-item>
       <el-menu-item index="/register">Cadastrar</el-menu-item>
     </el-menu>

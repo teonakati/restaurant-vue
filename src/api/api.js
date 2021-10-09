@@ -1,16 +1,16 @@
-import clienteHttp from '../utils/http'
+import http from '../utils/http'
 
 const ApiClient = {
   get(url, query) {
-    return clienteHttp.get(url, query);
+    return http.get(url, query);
   },
 
   post(url, parametros) {
-    return clienteHttp.post(url, parametros);
+    return http.post(url, parametros);
   },
 
   put(url, parametros){
-    return clienteHttp.put(url, parametros);
+    return http.put(url, parametros);
   }
 };
 

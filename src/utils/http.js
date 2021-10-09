@@ -7,10 +7,14 @@ const client = axios.create({
 })
 
 client.interceptors.request.use((config) => {
-    let token = SessionStore.get(token)
+    let token = SessionStore.get('token')
     
+    console.log(token)
     if (token)
         config.headers['authorization'] = `Bearer ${token}`
+
+    console.log(config.headers['authorization'])
+
 
     return config
 })
